@@ -1,8 +1,60 @@
-# Omakase Ruby styling for Rails
-inherit_gem: { rubocop-rails-omakase: rubocop.yml }
+inherit_gem:
+  rubocop-shopify: rubocop.yml
 
-# Overwrite or add rules to create your own house style
-#
-# # Use `[a, [b, c]]` not `[ a, [ b, c ] ]`
-# Layout/SpaceInsideArrayLiteralBrackets:
-#   Enabled: false
+plugins:
+  - rubocop-rails
+  - rubocop-performance
+  - rubocop-rspec
+  - rubocop-rspec_rails
+  - rubocop-factory_bot
+  - rubocop-obsession
+  - rubocop-thread_safety
+
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: 3.4
+  ParserEngine: parser_prism
+  SuggestExtensions: false
+  Exclude:
+    - 'bin/**/*'
+    - 'coverage/**/*'
+    - 'db/schema.rb'
+    - 'lib/tasks/auto_annotate_models.rake'
+    - 'log/**/*'
+    - 'public/**/*'
+    - 'scripts/**/*'
+    - 'tmp/**/*'
+    - 'vendor/**/*'
+
+FactoryBot/ExcessiveCreateList:
+  Enabled: false
+
+Obsession/Graphql/MutationName:
+  Enabled: false
+
+RSpec/ExampleLength:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+Style/BlockDelimiters:
+  EnforcedStyle: braces_for_chaining
+
+Style/MethodCallWithArgsParentheses:
+  AllowedMethods:
+    - head
+    - raise
+    - render
+  Exclude:
+    - 'db/migrate/*'
+    - 'spec/**/*'
+
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
+
+Style/SymbolArray:
+  EnforcedStyle: percent
+
+Style/WordArray:
+  EnforcedStyle: percent
