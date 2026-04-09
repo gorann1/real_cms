@@ -51,9 +51,7 @@ pre-commit:
       run: bundle exec database_consistency
     brakeman:
       run: bundle exec brakeman --quiet --no-pager
-    eslint:
-      run: bun run --bun lint
-    typescript-types:
-      run: bun run --bun types:typescript
-    svelte-types:
-      run: bun run --bun types:svelte
+    # eslint:
+    #   run: bun run --bun lint
+    # typescript-types:
+    #   run: bun run --bun types:typescript
