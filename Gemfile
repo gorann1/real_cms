@@ -19,7 +19,11 @@ gem 'jbuilder'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[windows jruby]
 
-# Use the database-backed adapters for Rails.cache, Active Job, and Action Cable
+# APP
+# gem 'dotenv-rails'
+gem 'interaktor'
+gem 'ostruct'
+gem 'pundit'
 gem 'solid_cache'
 gem 'solid_queue'
 gem 'solid_cable'
@@ -36,6 +40,25 @@ gem 'thruster', require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 gem 'image_processing', '~> 1.2'
 
+# Use Vite in Rails and bring joy to your JavaScript experience
+gem 'vite_rails', '~> 3.0'
+
+# The Rails adapter for Inertia.js [https://inertia-rails.dev]
+gem 'inertia_rails', '~> 3.6'
+
+# An authentication system generator for Rails applications
+# we leave gem here to watch for security updates
+gem 'authentication-zero'
+
+# Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
+gem 'bcrypt', '~> 3.1.7'
+
+# Monitoring
+gem 'rorvswild'
+
+# Brings Rails named routes to javascript
+gem 'js-routes'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri windows], require: 'debug/prelude'
@@ -46,13 +69,19 @@ group :development, :test do
   # RSpec for Rails 7+
   gem 'rspec-rails', '~> 8.0'
 
-  # Fixtures replacement with a straightforward definition syntax
-  gem 'factory_bot_rails'
+  # Code Quality
+  gem 'strong_migrations'
+  gem 'prosopite'
+  gem 'pg_query'
 end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem 'web-console'
+  gem 'annotaterb'
+  gem 'listen'
+  gem 'prism'
+
   # Code Quality
   gem 'database_consistency', require: false
   gem 'rails_best_practices', require: false
@@ -71,8 +100,14 @@ group :development do
 end
 
 group :test do
+  # Testing
+  gem 'factory_bot_rails'
+  gem 'database_cleaner-active_record'
+  gem 'faker'
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
   gem 'selenium-webdriver'
+
+  # Code Quality
   gem 'simplecov', require: false, group: :test
 end

@@ -1,5 +1,14 @@
 # frozen_string_literal: true
 
+require 'spec_helper'
+ENV['RAILS_ENV'] ||= 'test'
+
+require File.expand_path('../config/environment', __dir__)
+abort('The Rails environment is running in production mode!') if Rails.env.production?
+
+require 'simplecov'
+SimpleCov.start 'rails'
+
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
@@ -60,7 +69,7 @@ RSpec.configure do |config|
   # The different available types are documented in the features, such as in
   # https://rspec.info/features/8-0/rspec-rails
   #
-  # You can also infer these behaviours automatically by location, e.g.
+  # You can also this infer these behaviours automatically by location, e.g.
   # /spec/models would pull in the same behaviour as `type: :model` but this
   # behaviour is considered legacy and will be removed in a future version.
   #
